@@ -28,4 +28,8 @@ public class Floor {
             }
         }
     }
+    public List<Slot> getSpaceList()
+    {
+        return spaceList;
+    }
 }
