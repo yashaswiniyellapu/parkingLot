@@ -6,7 +6,7 @@ import java.util.List;
 public class Floor {
     private  int getNumOfSlots;
     private List<Slot> spaceList = new ArrayList<>();
-    Floor(int getNumOfSlots)
+    public Floor(int getNumOfSlots)
     {
         this.getNumOfSlots = getNumOfSlots;
         createFloor(getNumOfSlots);
