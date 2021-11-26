@@ -3,10 +3,10 @@ package com.everestengineering.servicetype;
 import com.everestengineering.design.ParkingLot;
 
 public class Bike implements Vehicle {
-    private String regNumber;
-    private String color;
-    private String vehicletype;
-    private ParkingLot parkingLot;
+    private final String regNumber;
+    private final String color;
+    private final String vehicletype;
+    private final ParkingLot parkingLot;
 
     public Bike(ParkingLot parkingLot, String regNumber, String color, String vehicletype) {
         this.vehicletype = vehicletype;

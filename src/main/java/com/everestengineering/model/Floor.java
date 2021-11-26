@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Floor {
-    private int getNumOfSlots;
-    private List<Slot> spaceList = new ArrayList<>();
+    private final int numOfSlots;
+    private final List<Slot> spaceList = new ArrayList<>();
 
-    public Floor(int getNumOfSlots) {
-        this.getNumOfSlots = getNumOfSlots;
-        createFloor(getNumOfSlots);
+    public Floor(int numOfSlots) {
+        this.numOfSlots = numOfSlots;
+        createFloor(numOfSlots);
     }
 
     public void createFloor(int numOfSlots) {
