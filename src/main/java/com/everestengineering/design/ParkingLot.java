@@ -46,7 +46,9 @@ public class ParkingLot {
             }
 
         }
-        isParkLotFull();
+        if(!isValid)
+        {isParkLotFull();}
+
 
 
     }

@@ -51,6 +51,6 @@ final class app {
 
 
             }
-        } while (command[0].equals("exit"));
+        } while (!command[0].equals("exit"));
     }
 }

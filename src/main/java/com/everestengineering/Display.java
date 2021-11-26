@@ -52,7 +52,7 @@ public class Display {
             if (slotsType.equals("free_slots")) {
                 System.out.println("The free slot for " + vehicleName + " on Floor " + i + " is: " + freeSlots);
             } else {
-                System.out.println("The no of occupied slots for " + vehicleName + "on Floor " + i + " is: " + occupiedSlots);
+                System.out.println("The occupied slot for " + vehicleName + "on Floor " + i + " is: " + occupiedSlots);
             }
 
         }
