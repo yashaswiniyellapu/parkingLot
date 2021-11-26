@@ -23,8 +23,8 @@ public class ParkingLot {
 
     public void buildParkLot(int numOfFloors) {
         for (int i = 0; i < numOfFloors; i++) {
-            Floor inc = new Floor(numOfSlots);
-            floorList.add(i, inc.getSpaceList());
+            Floor increment = new Floor(numOfSlots);
+            floorList.add(i, increment.getSpaceList());
         }
     }
 
@@ -65,10 +65,10 @@ public class ParkingLot {
 
 
     public void unPark(String ticketId) {
-        String[] str = ticketId.split("_", -1);
-        if (Integer.parseInt(str[1]) < getNumOfFloors() && Integer.parseInt(str[2]) < numOfSlots) {
-            System.out.println("Unparked Vehicle ID and color is: " + getFloorList().get(Integer.parseInt(str[1])).get(Integer.parseInt(str[2])).getStatus());
-            getFloorList().get(Integer.parseInt(str[1])).get(Integer.parseInt(str[2])).setStatus("unparked");
+        String[] ticket = ticketId.split("_", -1);
+        if (Integer.parseInt(ticket[1]) < getNumOfFloors() && Integer.parseInt(ticket[2]) < numOfSlots) {
+            System.out.println("Unparked Vehicle ID and color is: " + getFloorList().get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).getStatus());
+            getFloorList().get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).setStatus("unparked");
         } else {
             System.out.println("Invalid Ticket");
         }
