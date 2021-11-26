@@ -6,7 +6,6 @@ import com.everestengineering.model.Slot;
 import com.everestengineering.servicetype.Vehicle;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ParkingLot {
@@ -47,22 +46,39 @@ public class ParkingLot {
             }
 
         }
-        if(!getFloorList().contains("unparked")){System.out.println("Parklot is Full");}
+        isParkLotFull();
+
+
     }
+
+    public void isParkLotFull() {
+        if (!getFloorList().get(numOfFloors - 1).get(0).getStatus().equals("unparked")) {
+            System.out.println("Parklot is full");
+        } else if (!getFloorList().get(numOfFloors - 1).get(2).getStatus().equals("unparked")) {
+            System.out.println("Parklot is full");
+        } else if (!getFloorList().get(numOfFloors - 1).get(numOfSlots - 1).getStatus().equals("unparked")) {
+            System.out.println("Parklot is full");
+        }
+    }
+
 
     public void unPark(String ticketId) {
         String[] str = ticketId.split("_", -1);
-        if(Integer.parseInt(str[1])<getNumOfFloors()&&Integer.parseInt(str[2])<numOfSlots) {
+        if (Integer.parseInt(str[1]) < getNumOfFloors() && Integer.parseInt(str[2]) < numOfSlots) {
             System.out.println("Unparked Vehicle ID and color is: " + getFloorList().get(Integer.parseInt(str[1])).get(Integer.parseInt(str[2])).getStatus());
             getFloorList().get(Integer.parseInt(str[1])).get(Integer.parseInt(str[2])).setStatus("unparked");
+        } else {
+            System.out.println("Invalid Ticket");
         }
-        else {System.out.println("Invalid Ticket");}
     }
-    public void display(String type,String vehicleName)
-    {
-        Display object = new Display(vehicleName,this);
-        if(type.contains("count")){object.displayCount(type);}
-        else{object.displaySlots(type);}
+
+    public void display(String type, String vehicleName) {
+        Display object = new Display(vehicleName, this);
+        if (type.contains("count")) {
+            object.displayCount(type);
+        } else {
+            object.displaySlots(type);
+        }
     }
 
     public List<List<Slot>> getFloorList() {
