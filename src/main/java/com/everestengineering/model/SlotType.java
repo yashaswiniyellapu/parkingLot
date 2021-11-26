@@ -1,6 +1,6 @@
 package com.everestengineering.model;
 
- enum SlotType {
+public enum SlotType {
     TRUCK,
     BIKE,
     CAR

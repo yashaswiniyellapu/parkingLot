@@ -1,8 +1,7 @@
 package com.everestengineering.servicetype;
 
+public interface Vehicle {
+    void registerData(int floor, int slot);
 
-import com.everestengineering.model.SlotType;
-
-public interface VehicleInterface {
-    void registerData( String regNo,String color);
+    String getVehicleType();
 }
