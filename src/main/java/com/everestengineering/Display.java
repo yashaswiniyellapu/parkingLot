@@ -11,11 +11,11 @@ public class Display {
         this.parkLot = parkLot;
     }
 
-    public void displayCount(String countType) {
-        int freeCount, occupiedCount;
+    public int displayCount(String countType) {
+        int freeCount = 0;
+        int occupiedCount = 0;
         for (int i = 0; i < parkLot.getNumOfFloors(); i++) {
-            freeCount = 0;
-            occupiedCount = 0;
+
             for (int j = 0; j < parkLot.getNumOfSlots(); j++) {
                 if (vehicleName.equalsIgnoreCase(parkLot.getFloorList().get(i).get(j).getSlotType().toString())) {
                     if (parkLot.getFloorList().get(i).get(j).getStatus().equals("unparked")) {
@@ -32,6 +32,7 @@ public class Display {
             }
 
         }
+        return freeCount;
     }
 
     public void displaySlots(String slotsType) {
