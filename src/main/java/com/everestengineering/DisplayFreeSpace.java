@@ -8,8 +8,8 @@ import java.util.Map;
 import static com.everestengineering.ParkingLot.floorSpace;
 
 public class DisplayFreeSpace implements Display {
-    private String typeOfSpace;
-    private SlotType slotType;
+    private final String typeOfSpace;
+    private final SlotType slotType;
     private List<Integer> slotSpace;
     private Map<Integer, List> floorMap;
 
@@ -19,10 +19,10 @@ public class DisplayFreeSpace implements Display {
     }
 
     @Override
-    public Map<Integer, List> getSlots1() {
+    public Map<Integer, List> getSlotsLoop1() {
         floorMap = new HashMap<>();
         for (int i = 0; i < floorSpace.size(); i++) {
-            List<Integer> slotsList = getSlots2(floorSpace.get(i));
+            List<Integer> slotsList = getSlotsLoop2(floorSpace.get(i));
             floorMap.put(i, slotsList);
         }
 
@@ -30,7 +30,7 @@ public class DisplayFreeSpace implements Display {
     }
 
     @Override
-    public List<Integer> getSlots2(List<Slot> list) {
+    public List<Integer> getSlotsLoop2(List<Slot> list) {
         slotSpace = new ArrayList<>();
         for (int j = 0; j < list.size(); j++) {
             if (list.get(j).getSlotType().equals(slotType)) {

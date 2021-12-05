@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
-    private String parklotId;
-    private int numOfFloors;
-    private int numOfSlots;
+    private final String parklotId;
+    private final int numOfFloors;
+    private final int numOfSlots;
     static List<List<Slot>> floorSpace = new ArrayList<>();
 
     public ParkingLot(String parklotId, int numOfFloors, int numOfSlots) {
@@ -44,26 +44,26 @@ public class ParkingLot {
         System.out.println("Unparked vehicle with Registration number " + data[0] + " and color " + data[1]);
         floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).setStatus("unparked");
     }
-    public void display(Display display)
-    {
-        if(display.getTypeOfSpace().contains("slots"))
-        {
-            Map<Integer, List> floorMap = display.getSlots1();
-            floorMap.keySet().stream().forEach(key-> System.out.println(display.getTypeOfSpace()
-                    +"slots "+"for "
-                    +display.getSlotType()
-                    +" on Floor "
-                    + key+":"+floorMap.get(key)));
+
+    public void display(Display display) {
+        System.out.println("contains" + display.getTypeOfSpace());
+        String[] typeOfSpace = display.getTypeOfSpace().split("_");
+        if (display.getTypeOfSpace().contains("slots")) {
+            Map<Integer, List> floorMap = display.getSlotsLoop1();
+            floorMap.keySet().forEach(key -> System.out.println(typeOfSpace[0]
+                    + "slots " + "for "
+                    + display.getSlotType()
+                    + " on Floor "
+                    + key + ":" + floorMap.get(key)));
         }
-        if(display.getTypeOfSpace().contains("count"))
-        {
-            Map<Integer, List> floorMap = display.getSlots1();
-            floorMap.keySet().stream().forEach(key-> System.out.println("No. of "
-                    +display.getTypeOfSpace()
-                    +"slots "+"for "
-                    +display.getSlotType()
-                    +" on Floor "
-                    + key+":"+floorMap.get(key).size()));
+        if (display.getTypeOfSpace().contains("count")) {
+            Map<Integer, List> floorMap = display.getSlotsLoop1();
+            floorMap.keySet().forEach(key -> System.out.println("No. of "
+                    + typeOfSpace[0]
+                    + "slots " + "for "
+                    + display.getSlotType()
+                    + " on Floor "
+                    + key + ":" + floorMap.get(key).size()));
         }
 
     }

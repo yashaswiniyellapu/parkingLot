@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Floor {
     private final int numOfSlots;
-    private List<Slot> spaceList = new ArrayList<>();
+    private final List<Slot> spaceList = new ArrayList<>();
 
     Floor(int numOfSlots) {
         this.numOfSlots = numOfSlots;
@@ -16,23 +16,23 @@ public class Floor {
 
     public void createTruckSpace() {
         for (int i = 0; i < 1; i++) {
-            spaceList.add(i,new Slot(SlotType.TRUCK, "unparked"));
+            spaceList.add(i, new Slot(SlotType.TRUCK, "unparked"));
         }
     }
 
     public void createBikeSpace() {
         for (int i = 1; i <= 2; i++) {
-            spaceList.add(i,new Slot(SlotType.BIKE, "unparked"));
+            spaceList.add(i, new Slot(SlotType.BIKE, "unparked"));
         }
     }
 
     public void createCarSpace() {
         for (int i = 3; i < numOfSlots; i++) {
-            spaceList.add(i,new Slot(SlotType.CAR, "unparked"));
+            spaceList.add(i, new Slot(SlotType.CAR, "unparked"));
         }
     }
-    public List<Slot> getSpaceList()
-    {
+
+    public List<Slot> getSpaceList() {
         return spaceList;
     }
 }

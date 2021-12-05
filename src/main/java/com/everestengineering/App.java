@@ -28,7 +28,7 @@ final class App {
                         vehicle = new Bike(input[2], input[3], SlotType.BIKE);
                         system.park(vehicle);
                     } else {
-                        vehicle = new Car(input[2], input[3],SlotType.CAR);
+                        vehicle = new Car(input[2], input[3], SlotType.CAR);
                         system.park(vehicle);
                     }
                     break;
@@ -36,15 +36,13 @@ final class App {
                     system.unPark(input[1]);
                     break;
                 case "display":
-                    if(input[1].contains("free"))
-                    {
-                        Display display =new DisplayFreeSpace("free",SlotType.valueOf(input[2]));
+                    if (input[1].contains("free")) {
+                        Display display = new DisplayFreeSpace(input[1], SlotType.valueOf(input[2]));
                         system.display(display);
                     }
-                    if(input[1].contains("free"))
-                    {
-                       Display display= new DisplayOccupiedSpace("occupied",SlotType.valueOf(input[2]));
-                       system.display(display);
+                    if (input[1].contains("occupied")) {
+                        Display display = new DisplayOccupiedSpace(input[1], SlotType.valueOf(input[2]));
+                        system.display(display);
                     }
 
                     break;
