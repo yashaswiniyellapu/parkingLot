@@ -1,4 +1,4 @@
-package com.everestengineering;
+package com.everestengineering.model;
 
 public class Slot {
     private SlotType slotType;

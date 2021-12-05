@@ -1,11 +1,14 @@
-package com.everestengineering;
+package com.everestengineering.display;
+
+import com.everestengineering.model.Slot;
+import com.everestengineering.model.SlotType;
+import com.everestengineering.parkspace.ParkingLot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.everestengineering.ParkingLot.floorSpace;
 
 public class DisplayOccupiedSpace implements Display {
     private final String typeOfSpace;
@@ -13,7 +16,7 @@ public class DisplayOccupiedSpace implements Display {
     private List<Integer> slotSpace;
     private Map<Integer, List> floorMap;
 
-    DisplayOccupiedSpace(String typeOfSpace, SlotType slotType) {
+    public DisplayOccupiedSpace(String typeOfSpace, SlotType slotType) {
         this.typeOfSpace = typeOfSpace;
         this.slotType = slotType;
     }
@@ -21,8 +24,8 @@ public class DisplayOccupiedSpace implements Display {
     @Override
     public Map<Integer, List> getSlotsLoop1() {
         floorMap = new HashMap<>();
-        for (int i = 0; i < floorSpace.size(); i++) {
-            List<Integer> slotsList = getSlotsLoop2(floorSpace.get(i));
+        for (int i = 0; i < ParkingLot.getFloorSpace().size(); i++) {
+            List<Integer> slotsList = getSlotsLoop2(ParkingLot.getFloorSpace().get(i));
             floorMap.put(i, slotsList);
         }
 

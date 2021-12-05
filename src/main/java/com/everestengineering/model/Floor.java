@@ -1,4 +1,4 @@
-package com.everestengineering;
+package com.everestengineering.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ public class Floor {
     private final int numOfSlots;
     private final List<Slot> spaceList = new ArrayList<>();
 
-    Floor(int numOfSlots) {
+    public Floor(int numOfSlots) {
         this.numOfSlots = numOfSlots;
         truckSpace();
         bikeSpace();

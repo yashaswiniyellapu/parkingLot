@@ -1,4 +1,6 @@
-package com.everestengineering;
+package com.everestengineering.display;
+
+import com.everestengineering.model.Slot;
 
 import java.util.List;
 import java.util.Map;

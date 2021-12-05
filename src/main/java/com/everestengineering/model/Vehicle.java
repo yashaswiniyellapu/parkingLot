@@ -1,11 +1,11 @@
-package com.everestengineering;
+package com.everestengineering.model;
 
-abstract class Vehicle {
+public abstract class Vehicle {
     private final String registrationNumber;
     private final String color;
     private final SlotType slotType;
 
-    protected Vehicle(String registrationId, String color, SlotType slotType) {
+    public Vehicle(String registrationId, String color, SlotType slotType) {
         this.registrationNumber = registrationId;
         this.color = color;
         this.slotType = slotType;

@@ -1,8 +1,11 @@
-package com.everestengineering;
+package com.everestengineering.validation;
+
+import com.everestengineering.model.Slot;
+import com.everestengineering.model.SlotType;
+import com.everestengineering.parkspace.ParkingLot;
 
 import java.util.List;
 
-import static com.everestengineering.ParkingLot.floorSpace;
 
 public class ValidateSpace {
     private SlotType slotType;
@@ -10,14 +13,14 @@ public class ValidateSpace {
     private boolean isContains = false;
     private boolean checkFloor = false;
 
-    ValidateSpace(SlotType slotType) {
+    public ValidateSpace(SlotType slotType) {
         this.slotType = slotType;
         position = new int[2];
     }
 
     public boolean checkFloor() {
-        for (int i = 0; i < floorSpace.size(); i++) {
-            boolean checkSlot = checkSlot(floorSpace.get(i));
+        for (int i = 0; i < ParkingLot.getFloorSpace().size(); i++) {
+            boolean checkSlot = checkSlot(ParkingLot.getFloorSpace().get(i));
             checkFloor = checkSlot;
             if (checkSlot) {
                 break;
@@ -30,7 +33,7 @@ public class ValidateSpace {
         for (int j = 0; j < list.size(); j++) {
             if (list.get(j).getSlotType().equals(slotType)) {
                 if (list.get(j).getStatus().equals("unparked")) {
-                    position[0] = floorSpace.indexOf(list);
+                    position[0] = ParkingLot.getFloorSpace().indexOf(list);
                     position[1] = j;
                     isContains = true;
                     break;

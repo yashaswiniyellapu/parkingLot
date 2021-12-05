@@ -1,5 +1,11 @@
 package com.everestengineering;
 
+import com.everestengineering.display.Display;
+import com.everestengineering.display.DisplayFreeSpace;
+import com.everestengineering.display.DisplayOccupiedSpace;
+import com.everestengineering.model.*;
+import com.everestengineering.parkspace.ParkingLot;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +23,7 @@ final class App {
             switch (input[0]) {
                 case "create_parking_lot":
                     system = new ParkingLot(input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]));
-                    System.out.println("Created parking lot with" + Integer.parseInt(input[2]) + " floors and " + Integer.parseInt(input[3]) + " slots per floor ");
+                    System.out.println("Created parking lot with " + Integer.parseInt(input[2]) + " floors and " + Integer.parseInt(input[3]) + " slots per floor ");
 
                     break;
                 case "park_vehicle":

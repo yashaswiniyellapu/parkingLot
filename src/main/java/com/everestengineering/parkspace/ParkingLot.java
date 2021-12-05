@@ -1,4 +1,10 @@
-package com.everestengineering;
+package com.everestengineering.parkspace;
+
+import com.everestengineering.validation.ValidateSpace;
+import com.everestengineering.display.Display;
+import com.everestengineering.model.Floor;
+import com.everestengineering.model.Slot;
+import com.everestengineering.model.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +14,7 @@ public class ParkingLot {
     private final String parklotId;
     private final int numOfFloors;
     private final int numOfSlots;
-    static List<List<Slot>> floorSpace = new ArrayList<>();
+    static  List<List<Slot>> floorSpace = new ArrayList<>();
 
     public ParkingLot(String parklotId, int numOfFloors, int numOfSlots) {
         this.parklotId = parklotId;
@@ -40,13 +46,23 @@ public class ParkingLot {
 
     public void unPark(String ticketId) {
         String[] ticket = ticketId.split("_");
-        String[] data = floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).getStatus().split(" ");
-        System.out.println("Unparked vehicle with Registration number " + data[0] + " and color " + data[1]);
-        floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).setStatus("unparked");
+        try{
+            if(!floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).getStatus().contains("unparked"))
+            {
+                String[] data = floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).getStatus().split(" ");
+                System.out.println("Unparked vehicle with Registration number " + data[0] + " and color " + data[1]);
+                floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).setStatus("unparked");
+            }
+            else {
+                System.out.println("Invalid ticket");
+            }
+        }
+        catch (Exception e) {System.out.println("Invalid Ticket");}
+
+
     }
 
     public void display(Display display) {
-        System.out.println("contains" + display.getTypeOfSpace());
         String[] typeOfSpace = display.getTypeOfSpace().split("_");
         if (display.getTypeOfSpace().contains("slots")) {
             Map<Integer, List> floorMap = display.getSlotsLoop1();
@@ -66,6 +82,10 @@ public class ParkingLot {
                     + key + ":" + floorMap.get(key).size()));
         }
 
+    }
+    public static List<List<Slot>> getFloorSpace()
+    {
+        return floorSpace;
     }
 
 }
