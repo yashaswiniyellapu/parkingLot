@@ -2,6 +2,7 @@ package com.everestengineering;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ParkingLot {
     private String parklotId;
@@ -42,6 +43,29 @@ public class ParkingLot {
         String[] data = floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).getStatus().split(" ");
         System.out.println("Unparked vehicle with Registration number " + data[0] + " and color " + data[1]);
         floorSpace.get(Integer.parseInt(ticket[1])).get(Integer.parseInt(ticket[2])).setStatus("unparked");
+    }
+    public void display(Display display)
+    {
+        if(display.getTypeOfSpace().contains("slots"))
+        {
+            Map<Integer, List> floorMap = display.getSlots1();
+            floorMap.keySet().stream().forEach(key-> System.out.println(display.getTypeOfSpace()
+                    +"slots "+"for "
+                    +display.getSlotType()
+                    +" on Floor "
+                    + key+":"+floorMap.get(key)));
+        }
+        if(display.getTypeOfSpace().contains("count"))
+        {
+            Map<Integer, List> floorMap = display.getSlots1();
+            floorMap.keySet().stream().forEach(key-> System.out.println("No. of "
+                    +display.getTypeOfSpace()
+                    +"slots "+"for "
+                    +display.getSlotType()
+                    +" on Floor "
+                    + key+":"+floorMap.get(key).size()));
+        }
+
     }
 
 }

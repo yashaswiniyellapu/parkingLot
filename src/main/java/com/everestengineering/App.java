@@ -36,7 +36,17 @@ final class App {
                     system.unPark(input[1]);
                     break;
                 case "display":
-                    //system.display(input[1], input[2]);
+                    if(input[1].contains("free"))
+                    {
+                        Display display =new DisplayFreeSpace("free",SlotType.valueOf(input[2]));
+                        system.display(display);
+                    }
+                    if(input[1].contains("free"))
+                    {
+                       Display display= new DisplayOccupiedSpace("occupied",SlotType.valueOf(input[2]));
+                       system.display(display);
+                    }
+
                     break;
                 case "exit":
                     break;
