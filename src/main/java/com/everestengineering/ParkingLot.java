@@ -30,7 +30,7 @@ public class ParkingLot {
         if (checkFloor) {
             int[] position = validateSpace.getPosition();
             System.out.println("Parked vehicle. TicketId " + parklotId + "_" + position[0] + "_" + position[1]);
-            floorSpace.get(position[0]).get(position[1]).setStatus(vehicle.getRegistrationId() + " " + vehicle.getColor());
+            floorSpace.get(position[0]).get(position[1]).setStatus(vehicle.getRegistrationNumber() + " " + vehicle.getColor());
         }
         if (!checkFloor) {
             System.out.println("Parklot is full");

@@ -9,24 +9,24 @@ public class Floor {
 
     Floor(int numOfSlots) {
         this.numOfSlots = numOfSlots;
-        createTruckSpace();
-        createBikeSpace();
-        createCarSpace();
+        truckSpace();
+        bikeSpace();
+        carSpace();
     }
 
-    public void createTruckSpace() {
+    public void truckSpace() {
         for (int i = 0; i < 1; i++) {
             spaceList.add(i, new Slot(SlotType.TRUCK, "unparked"));
         }
     }
 
-    public void createBikeSpace() {
+    public void bikeSpace() {
         for (int i = 1; i <= 2; i++) {
             spaceList.add(i, new Slot(SlotType.BIKE, "unparked"));
         }
     }
 
-    public void createCarSpace() {
+    public void carSpace() {
         for (int i = 3; i < numOfSlots; i++) {
             spaceList.add(i, new Slot(SlotType.CAR, "unparked"));
         }

@@ -1,18 +1,18 @@
 package com.everestengineering;
 
 abstract class Vehicle {
-    private String registrationId;
-    private String color;
-    private SlotType slotType;
+    private final String registrationNumber;
+    private final String color;
+    private final SlotType slotType;
 
     protected Vehicle(String registrationId, String color, SlotType slotType) {
-        this.registrationId = registrationId;
+        this.registrationNumber = registrationId;
         this.color = color;
         this.slotType = slotType;
     }
 
-    public String getRegistrationId() {
-        return registrationId;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
     public String getColor() {
